@@ -16,7 +16,7 @@ jobs:
         # target: The platform the game will run on.
         include:
           - runner: ubuntu-latest
-            target: operagx
+            target: windows
           # - runner: ubuntu-latest
           #   target: linux
           # - runner: ubuntu-latest
