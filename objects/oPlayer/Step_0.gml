@@ -1,9 +1,6 @@
 /// @description Update Physics
 
-// Get Inputs
-rightKey = keyboard_check(vk_right);
-leftKey = keyboard_check(vk_left);
-jumpKeyPressed = keyboard_check_pressed(vk_space);
+getControls();
 
 // X Movement
 moveDir = rightKey - leftKey;
@@ -32,17 +29,20 @@ x += xSpd;
 // Y Movement
 // Gravity
 ySpd += grav;
-	
+
+// Jump
+if(jumpKeyBuffered && onGround)
+{
+	// Reset Buffer
+	jumpKeyBuffered = false;
+	jumpKeyBufferTimer = 0;
+	ySpd = jspd;
+}
+
 // Cap falling speed
 if (ySpd > termVel)
 {
 	ySpd = termVel;	
-}
-
-// Jump
-if(jumpKeyPressed && place_meeting(x,y+1,oWall))
-{
-	ySpd = jspd;
 }
 
 // Y Collision
@@ -58,6 +58,16 @@ if (place_meeting(x,y + ySpd,oWall))
 	
 	// "Collide"
 	ySpd = 0;
+}
+
+// Check if on ground
+if(place_meeting(x,y+1,oWall))
+{
+	onGround = true;	
+}
+else
+{
+	onGround = false;	
 }
 
 y += ySpd;
