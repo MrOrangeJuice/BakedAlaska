@@ -30,13 +30,35 @@ x += xSpd;
 // Gravity
 ySpd += grav;
 
-// Jump
-if(jumpKeyBuffered && onGround)
+// Reset jumping variables
+if(onGround)
+{
+	jumpCount = 0;
+}
+else
+{
+	if (jumpCount == 0)
+	{
+		jumpCount = 1;	
+	}
+}
+
+// Initiate Jump
+if(jumpKeyBuffered && jumpCount < jumpMax)
 {
 	// Reset Buffer
 	jumpKeyBuffered = false;
 	jumpKeyBufferTimer = 0;
+	
+	jumpCount++;
+	
 	ySpd = jspd;
+}
+
+// Variable Jump Height
+if (ySpd < 0 && !jumpKey) //if you're moving upwards in the air but not holding down jump
+{
+	ySpd *= 0.85; //essentially, divide your vertical speed
 }
 
 // Cap falling speed
@@ -54,6 +76,12 @@ if (place_meeting(x,y + ySpd,oWall))
 	while (!place_meeting(x, y + _pixelCheck, oWall))
 	{
 		y += _pixelCheck;	
+	}
+	
+	// Bonk code
+	if(ySpd < 0)
+	{
+		ySpd *= 0.85;
 	}
 	
 	// "Collide"

@@ -15,6 +15,4 @@ termVel = 4;
 jspd = -5.5;
 jumpMax = 1;
 jumpCount = 0;
-jumpHoldTimer = 0;
-jumpHoldFrames = 18;
 onGround = true;
