@@ -30,6 +30,7 @@
     {"id":{"name":"rInit","path":"rooms/rInit/rInit.yy",},},
     {"id":{"name":"rTest","path":"rooms/rTest/rTest.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
+    {"id":{"name":"ScreenShake","path":"scripts/ScreenShake/ScreenShake.yy",},},
     {"id":{"name":"sBackgroundTest","path":"sprites/sBackgroundTest/sBackgroundTest.yy",},},
     {"id":{"name":"sPalette","path":"sprites/sPalette/sPalette.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
