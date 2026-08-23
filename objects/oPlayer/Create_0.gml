@@ -16,3 +16,8 @@ jspd = -5.5;
 jumpMax = 1;
 jumpCount = 0;
 onGround = true;
+
+if(!instance_exists(oPlayerPixel))
+{
+	instance_create_layer(x,y,layer,oPlayerPixel);	
+}
