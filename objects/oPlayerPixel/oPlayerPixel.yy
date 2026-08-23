@@ -34,5 +34,5 @@
     "path":"sprites/sPixel/sPixel.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
