@@ -28,19 +28,35 @@ x += xSpd;
 
 // Y Movement
 // Gravity
-ySpd += grav;
+if(coyoteHangTimer > 0)
+{
+	coyoteHangTimer--;
+}
+else
+{
+	ySpd += grav;
+	SetOnGround(false);
+}
 
 // Reset jumping variables
 if(onGround)
 {
 	jumpCount = 0;
+	coyoteJumpTimer = coyoteJumpFrames;
 }
 else
 {
-	if (jumpCount == 0)
+	coyoteJumpTimer--;
+	if (jumpCount == 0 && coyoteJumpTimer <= 0)
 	{
 		jumpCount = 1;	
 	}
+}
+
+// Check if on ground
+if(place_meeting(x,y+1,oWall))
+{
+	SetOnGround();
 }
 
 // Initiate Jump
@@ -53,6 +69,7 @@ if(jumpKeyBuffered && jumpCount < jumpMax)
 	jumpCount++;
 	
 	ySpd = jspd;
+	SetOnGround(false);
 }
 
 // Variable Jump Height
@@ -86,16 +103,6 @@ if (place_meeting(x,y + ySpd,oWall))
 	
 	// "Collide"
 	ySpd = 0;
-}
-
-// Check if on ground
-if(place_meeting(x,y+1,oWall))
-{
-	onGround = true;	
-}
-else
-{
-	onGround = false;	
 }
 
 y += ySpd;

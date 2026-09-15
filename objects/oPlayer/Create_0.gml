@@ -1,5 +1,20 @@
 /// @description Setup Variables
 
+// Custom functions for player
+function SetOnGround(_val = true)
+{
+	if _val == true
+	{
+		onGround = true;
+		coyoteHangTimer = coyoteHangFrames;
+	}
+	else
+	{
+		onGround = false;
+		coyoteHangTimer = 0;
+	}
+}
+
 // Controls Setup
 controlsSetup();
 
@@ -21,3 +36,11 @@ if(!instance_exists(oPlayerPixel))
 {
 	instance_create_layer(x,y,layer,oPlayerPixel);	
 }
+
+// Coyote Time
+// Hang Time
+coyoteHangFrames = 5;
+coyoteHangTimer = 0;
+// Jump buffer time
+coyoteJumpFrames = 10;
+coyoteJumpTimer = 0;
