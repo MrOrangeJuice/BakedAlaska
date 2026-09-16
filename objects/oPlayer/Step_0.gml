@@ -4,6 +4,9 @@ getControls();
 
 // X Movement
 moveDir = rightKey - leftKey;
+// Get my face
+if (moveDir != 0)
+	face = moveDir;
 
 // Get XSpd
 xSpd = moveDir * moveSpd;
@@ -106,3 +109,17 @@ if (place_meeting(x,y + ySpd,oWall))
 }
 
 y += ySpd;
+
+// Sprite Control
+if(abs(xSpd) > 0)
+{
+	sprite_index = runSpr;	
+}
+if(xSpd == 0)
+{
+	sprite_index = idleSpr;	
+}
+if(!onGround)
+{
+	sprite_index = jumpSpr;
+}

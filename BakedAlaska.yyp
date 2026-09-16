@@ -37,6 +37,7 @@
     {"id":{"name":"ScreenShake","path":"scripts/ScreenShake/ScreenShake.yy",},},
     {"id":{"name":"sBackgroundTest","path":"sprites/sBackgroundTest/sBackgroundTest.yy",},},
     {"id":{"name":"sBlitz","path":"sprites/sBlitz/sBlitz.yy",},},
+    {"id":{"name":"sBlitzJump","path":"sprites/sBlitzJump/sBlitzJump.yy",},},
     {"id":{"name":"sBlitzRun","path":"sprites/sBlitzRun/sBlitzRun.yy",},},
     {"id":{"name":"sCamAdjust","path":"sprites/sCamAdjust/sCamAdjust.yy",},},
     {"id":{"name":"sPalette","path":"sprites/sPalette/sPalette.yy",},},

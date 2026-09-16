@@ -18,7 +18,13 @@ function SetOnGround(_val = true)
 // Controls Setup
 controlsSetup();
 
+// Sprites
+idleSpr = sBlitz;
+runSpr = sBlitzRun;
+jumpSpr = sBlitzJump;
+
 // Moving
+face = 1;
 moveDir = 0;
 moveSpd = 2.25;
 xSpd = 0;
