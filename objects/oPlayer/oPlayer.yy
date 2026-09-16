@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sPlayer",
-    "path":"sprites/sPlayer/sPlayer.yy",
+    "name":"sBlitz",
+    "path":"sprites/sBlitz/sBlitz.yy",
   },
   "spriteMaskId":null,
   "visible":true,
