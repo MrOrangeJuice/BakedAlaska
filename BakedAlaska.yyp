@@ -49,6 +49,7 @@
     {"id":{"name":"sBlitzRun","path":"sprites/sBlitzRun/sBlitzRun.yy",},},
     {"id":{"name":"sCamAdjust","path":"sprites/sCamAdjust/sCamAdjust.yy",},},
     {"id":{"name":"sPalette","path":"sprites/sPalette/sPalette.yy",},},
+    {"id":{"name":"sPineapple","path":"sprites/sPineapple/sPineapple.yy",},},
     {"id":{"name":"sPixel","path":"sprites/sPixel/sPixel.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sPlayer1","path":"sprites/sPlayer1/sPlayer1.yy",},},

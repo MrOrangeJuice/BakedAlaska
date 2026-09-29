@@ -23,18 +23,39 @@ if (place_meeting(x + xSpd,y,oWall))
 			y -= _subPixel;	
 		}
 	}
-	// No slope mode
+	// Ceiling slopes, otherwise "No slope" mode
 	else
 	{
-		// Scoot up to wall
-		var _pixelCheck = _subPixel * sign(xSpd);
-		while (!place_meeting(x + _pixelCheck,y,oWall))
+		// Ceiling slopes
+		if(!place_meeting(x + xSpd, y + abs(xSpd) + 1, oWall))
 		{
-			x += _pixelCheck;	
+			while (place_meeting(x + xSpd, y, oWall))
+			{
+				y += _subPixel;
+			}
 		}
+		// No slope
+		else
+		{
+			// Scoot up to wall
+			var _pixelCheck = _subPixel * sign(xSpd);
+			while (!place_meeting(x + _pixelCheck,y,oWall))
+			{
+				x += _pixelCheck;	
+			}
 	
-		// "Collide"
-		xSpd = 0;
+			// "Collide"
+			xSpd = 0;
+		}
+	}
+}
+
+// Go down slopes
+if (ySpd >= 0 && !place_meeting(x + xSpd, y + 1, oWall) && place_meeting(x + xSpd, y + abs(xSpd) + 1, oWall))
+{
+	while (!place_meeting(x + xSpd, y + _subPixel, oWall))
+	{
+		y += _subPixel;
 	}
 }
 
