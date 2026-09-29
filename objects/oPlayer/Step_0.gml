@@ -12,7 +12,7 @@ if (moveDir != 0)
 xSpd = moveDir * moveSpd;
 
 // X collision
-var _subPixel = .5;
+var _subPixel = .1;
 if (place_meeting(x + xSpd,y,oWall))
 {
 	// Check if there is a slope to go up
