@@ -50,3 +50,7 @@ coyoteHangTimer = 0;
 // Jump buffer time
 coyoteJumpFrames = 10;
 coyoteJumpTimer = 0;
+
+// Moving platforms
+myFloorPlat = noone;
+movePlatXSpd = 0;
