@@ -121,7 +121,7 @@ if (ySpd > termVel)
 }
 
 // Y Collision
-var _subPixel = .5;
+var _subPixel = .1;
 if (place_meeting(x,y + ySpd,oWall))
 {
 	// Scoot up to wall
