@@ -1,147 +1,211 @@
 /// @description Update Physics
 
-getControls();
 
-// X Movement
-moveDir = rightKey - leftKey;
-// Get my face
-if (moveDir != 0)
-	face = moveDir;
-
-// Get XSpd
-xSpd = moveDir * moveSpd;
-
-// X collision
-var _subPixel = .1;
-if (place_meeting(x + xSpd,y,oWall))
+if(!global.paused && !global.hitPause)
 {
-	// Check if there is a slope to go up
-	if (!place_meeting(x + xSpd, y - abs(xSpd)-1,oWall))
+	image_speed = 1;
+	shootTimer--;
+	
+	getControls();
+
+	// X Movement
+	moveDir = rightKey - leftKey;
+	// Get my face
+	if (moveDir != 0)
+		face = moveDir;
+
+	// Get XSpd
+	xSpd = moveDir * moveSpd;
+
+	// X collision
+	var _subPixel = .1;
+	if (place_meeting(x + xSpd,y,oWall))
 	{
-		while(place_meeting(x + xSpd, y, oWall))
+		// Check if there is a slope to go up
+		if (!place_meeting(x + xSpd, y - abs(xSpd)-1,oWall))
 		{
-			y -= _subPixel;	
-		}
-	}
-	// Ceiling slopes, otherwise "No slope" mode
-	else
-	{
-		// Ceiling slopes
-		if(!place_meeting(x + xSpd, y + abs(xSpd) + 1, oWall))
-		{
-			while (place_meeting(x + xSpd, y, oWall))
+			while(place_meeting(x + xSpd, y, oWall))
 			{
-				y += _subPixel;
+				y -= _subPixel;	
 			}
 		}
-		// No slope
+		// Ceiling slopes, otherwise "No slope" mode
 		else
 		{
-			// Scoot up to wall
-			var _pixelCheck = _subPixel * sign(xSpd);
-			while (!place_meeting(x + _pixelCheck,y,oWall))
+			// Ceiling slopes
+			if(!place_meeting(x + xSpd, y + abs(xSpd) + 1, oWall))
 			{
-				x += _pixelCheck;	
+				while (place_meeting(x + xSpd, y, oWall))
+				{
+					y += _subPixel;
+				}
 			}
+			// No slope
+			else
+			{
+				// Scoot up to wall
+				var _pixelCheck = _subPixel * sign(xSpd);
+				while (!place_meeting(x + _pixelCheck,y,oWall))
+				{
+					x += _pixelCheck;	
+				}
 	
-			// "Collide"
-			xSpd = 0;
+				// "Collide"
+				xSpd = 0;
+			}
 		}
 	}
-}
 
-// Go down slopes
-if (ySpd >= 0 && !place_meeting(x + xSpd, y + 1, oWall) && place_meeting(x + xSpd, y + abs(xSpd) + 1, oWall))
-{
-	while (!place_meeting(x + xSpd, y + _subPixel, oWall))
+	// Go down slopes
+	if (ySpd >= 0 && !place_meeting(x + xSpd, y + 1, oWall) && place_meeting(x + xSpd, y + abs(xSpd) + 1, oWall))
 	{
-		y += _subPixel;
+		while (!place_meeting(x + xSpd, y + _subPixel, oWall))
+		{
+			y += _subPixel;
+		}
 	}
-}
 
-// Move
-x += xSpd;
+	// Move
+	x += xSpd;
 
-// Y Movement
-// Gravity
-if(coyoteHangTimer > 0)
-{
-	coyoteHangTimer--;
+	// Y Movement
+	// Gravity
+	if(coyoteHangTimer > 0)
+	{
+		coyoteHangTimer--;
+	}
+	else
+	{
+		ySpd += grav;
+		SetOnGround(false);
+	}
+
+	// Reset jumping variables
+	if(onGround)
+	{
+		jumpCount = 0;
+		coyoteJumpTimer = coyoteJumpFrames;
+	}
+	else
+	{
+		coyoteJumpTimer--;
+		if (jumpCount == 0 && coyoteJumpTimer <= 0)
+		{
+			jumpCount = 1;	
+		}
+	}
+
+	// Check if on ground
+	if(place_meeting(x,y+1,oWall))
+	{
+		SetOnGround();
+	}
+
+	// Initiate Jump
+	if(jumpKeyBuffered && jumpCount < jumpMax)
+	{
+		// Reset Buffer
+		jumpKeyBuffered = false;
+		jumpKeyBufferTimer = 0;
+	
+		jumpCount++;
+	
+		ySpd = jspd;
+		SetOnGround(false);
+	}
+
+	// Variable Jump Height
+	if (ySpd < 0 && !jumpKey) //if you're moving upwards in the air but not holding down jump
+	{
+		ySpd *= 0.85; //essentially, divide your vertical speed
+	}
+
+	// Cap falling speed
+	if (ySpd > termVel)
+	{
+		ySpd = termVel;	
+	}
+
+	// Y Collision
+	var _subPixel = .1;
+	if (place_meeting(x,y + ySpd,oWall))
+	{
+		// Scoot up to wall
+		var _pixelCheck = _subPixel * sign(ySpd);
+		while (!place_meeting(x, y + _pixelCheck, oWall))
+		{
+			y += _pixelCheck;	
+		}
+	
+		// Bonk code
+		if(ySpd < 0)
+		{
+			ySpd *= 0.85;
+		}
+	
+		// "Collide"
+		ySpd = 0;
+	}
+
+	y += ySpd;
+	
+	// Shoot
+	if (attackKey && shootTimer <= 0)
+	{
+		shootTimer = shootCooldown;
+		bullet = -1;
+		bullet = instance_create_layer(x+(8*face),y-5,"Bullets",oBullet);
+		if(rightKey)
+		{
+			bullet.xdir = 1;
+			bullet.image_xscale = 1;
+			for(var i = 0; i < 3; i++)
+			{
+				var vfx = instance_create_layer(x+8,y-5,"VFX",oParticleStabVFXRight);
+				vfx.particleSpeed += xSpd;
+			}
+		}
+		else if(leftKey)
+		{
+			bullet.xdir = -1;	
+			bullet.image_xscale = -1;
+			for(var i = 0; i < 3; i++)
+			{
+				var vfx = instance_create_layer(x-8,y-5,"VFX",oParticleStabVFXLeft);
+				vfx.particleSpeed += abs(xSpd);
+			}
+		}
+		else
+		{
+			if(face == 1)
+			{
+				bullet.xdir = 1;
+				bullet.image_xscale = 1;
+				for(var i = 0; i < 3; i++)
+				{
+					var vfx = instance_create_layer(x+8,y-5,"VFX",oParticleStabVFXRight);
+					vfx.particleSpeed += xSpd;
+				}
+			}
+			else
+			{
+				bullet.xdir = -1;	
+				bullet.image_xscale = -1;
+				for(var i = 0; i < 3; i++)
+				{
+					var vfx = instance_create_layer(x-8,y-5,"VFX",oParticleStabVFXLeft);
+					vfx.particleSpeed += abs(xSpd);
+				}
+			}
+		}
+		audio_play_sound(snd_Shoot,5,false);
+		ScreenShake(1,5);
+	}
 }
 else
 {
-	ySpd += grav;
-	SetOnGround(false);
+	image_speed = 0;
 }
-
-// Reset jumping variables
-if(onGround)
-{
-	jumpCount = 0;
-	coyoteJumpTimer = coyoteJumpFrames;
-}
-else
-{
-	coyoteJumpTimer--;
-	if (jumpCount == 0 && coyoteJumpTimer <= 0)
-	{
-		jumpCount = 1;	
-	}
-}
-
-// Check if on ground
-if(place_meeting(x,y+1,oWall))
-{
-	SetOnGround();
-}
-
-// Initiate Jump
-if(jumpKeyBuffered && jumpCount < jumpMax)
-{
-	// Reset Buffer
-	jumpKeyBuffered = false;
-	jumpKeyBufferTimer = 0;
-	
-	jumpCount++;
-	
-	ySpd = jspd;
-	SetOnGround(false);
-}
-
-// Variable Jump Height
-if (ySpd < 0 && !jumpKey) //if you're moving upwards in the air but not holding down jump
-{
-	ySpd *= 0.85; //essentially, divide your vertical speed
-}
-
-// Cap falling speed
-if (ySpd > termVel)
-{
-	ySpd = termVel;	
-}
-
-// Y Collision
-var _subPixel = .1;
-if (place_meeting(x,y + ySpd,oWall))
-{
-	// Scoot up to wall
-	var _pixelCheck = _subPixel * sign(ySpd);
-	while (!place_meeting(x, y + _pixelCheck, oWall))
-	{
-		y += _pixelCheck;	
-	}
-	
-	// Bonk code
-	if(ySpd < 0)
-	{
-		ySpd *= 0.85;
-	}
-	
-	// "Collide"
-	ySpd = 0;
-}
-
-y += ySpd;
 
 // Sprite Control
 if(abs(xSpd) > 0)

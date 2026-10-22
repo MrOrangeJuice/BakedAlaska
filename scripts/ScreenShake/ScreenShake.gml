@@ -12,16 +12,4 @@ function ScreenShake(magnitude, frames) {
 			shake_length = frames;
 		}
 	}
-	
-	with (oFullCamera)
-	{
-		if(magnitude > shake_remain)
-		{
-			shake_magnitude = magnitude;
-			shake_remain = magnitude;
-			shake_length = frames;
-		}
-	}
-
-
 }

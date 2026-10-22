@@ -50,3 +50,8 @@ coyoteHangTimer = 0;
 // Jump buffer time
 coyoteJumpFrames = 10;
 coyoteJumpTimer = 0;
+
+// Attack
+bullet = -1;
+shootTimer = 0;
+shootCooldown = 8;
