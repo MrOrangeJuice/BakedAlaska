@@ -1,7 +1,7 @@
 /// @description Hit
 
 ScreenShake(2,10);
-other.hp -= 1 + oBattleSystem.damageUpgrade;
+other.hp -= 1;
 other.flash = 5;
 audio_play_sound(snd_Hit,5,false);
 if(xdir = 1)
@@ -28,17 +28,6 @@ if(other.hp <= 0)
 		instance_create_layer(other.x,other.y,"VFX",oParticleExplode);
 	}
 	instance_destroy(other);
-	
-	if(other.object_index == oTankEnemy || other.object_index == oCowboy || other.object_index == oWrenchEnemy)
-	{
-		global.enemiesLeft--;
-	}
-	
-	if(global.enemiesLeft <= 0 && (other.object_index == oTankEnemy || other.object_index == oCowboy || other.object_index == oWrenchEnemy))
-	{
-		instance_create_layer(0,0,"Instances",oHitstopEnd);
-		audio_play_sound(snd_Upgrade,5,false);
-	}
 }
 
 instance_destroy();

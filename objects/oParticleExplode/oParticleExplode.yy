@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sParticleStabVFX1",
-    "path":"sprites/sParticleStabVFX1/sParticleStabVFX1.yy",
+    "name":"sParticleStabVFX",
+    "path":"sprites/sParticleStabVFX/sParticleStabVFX.yy",
   },
   "spriteMaskId":null,
   "visible":true,

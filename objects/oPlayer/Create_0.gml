@@ -54,4 +54,4 @@ coyoteJumpTimer = 0;
 // Attack
 bullet = -1;
 shootTimer = 0;
-shootCooldown = 8;
+shootCooldown = 12;

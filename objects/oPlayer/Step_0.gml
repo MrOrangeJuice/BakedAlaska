@@ -112,6 +112,8 @@ if(!global.paused && !global.hitPause)
 	
 		ySpd = jspd;
 		SetOnGround(false);
+		
+		audio_play_sound(snd_Jump,5,false);
 	}
 
 	// Variable Jump Height
