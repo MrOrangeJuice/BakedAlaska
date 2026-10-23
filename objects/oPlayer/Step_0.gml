@@ -216,9 +216,15 @@ if(abs(xSpd) > 0)
 }
 if(xSpd == 0)
 {
-	sprite_index = idleSpr;	
+	if(landing)
+		sprite_index = landSpr;	
+	else
+		sprite_index = idleSpr;
 }
 if(!onGround)
 {
-	sprite_index = jumpSpr;
+	if(ySpd > 0)
+		sprite_index = fallSpr;
+	else
+		sprite_index = jumpSpr;
 }

@@ -7,9 +7,17 @@ function SetOnGround(_val = true)
 	{
 		onGround = true;
 		coyoteHangTimer = coyoteHangFrames;
+		if(!landed)
+		{
+			landed = true;
+			landing = true;
+			//instance_create_layer(x,y,"VFX",oLandVFX);
+		}
 	}
 	else
 	{
+		landed = false;
+		landing = false;
 		onGround = false;
 		coyoteHangTimer = 0;
 	}
@@ -22,6 +30,8 @@ controlsSetup();
 idleSpr = sBlitz;
 runSpr = sBlitzRun;
 jumpSpr = sBlitzJump;
+fallSpr = sBlitzFall;
+landSpr = sBlitzLand;
 
 // Moving
 face = 1;
@@ -55,3 +65,7 @@ coyoteJumpTimer = 0;
 bullet = -1;
 shootTimer = 0;
 shootCooldown = 12;
+
+// Land
+landing = true;
+landed = false;
