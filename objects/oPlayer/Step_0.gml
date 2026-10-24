@@ -212,7 +212,10 @@ else
 // Sprite Control
 if(abs(xSpd) > 0)
 {
-	sprite_index = runSpr;	
+	if(landing)
+		sprite_index = landSpr;	
+	else
+		sprite_index = runSpr;	
 }
 if(xSpd == 0)
 {
