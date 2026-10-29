@@ -271,14 +271,18 @@ else
 // Sprite Control
 if(abs(xSpd) > 0)
 {
-	if(landing)
+	if(grappling)
+		sprite_index = superSpr;
+	else if(landing)
 		sprite_index = runLandSpr;	
 	else
 		sprite_index = runSpr;	
 }
 if(xSpd == 0)
 {
-	if(landing)
+	if(grappling)
+		sprite_index = superSpr;
+	else if(landing)
 		sprite_index = landSpr;	
 	else
 		sprite_index = idleSpr;

@@ -33,6 +33,7 @@ jumpSpr = sBlitzJump;
 fallSpr = sBlitzFall;
 landSpr = sBlitzLand;
 runLandSpr = sBlitzRunLand;
+superSpr = sBlitzGrapple;
 
 // Moving
 face = 1;
