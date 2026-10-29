@@ -105,7 +105,7 @@ if(!global.paused && !global.hitPause)
 	}
 
 	// Initiate Jump
-	if(jumpKeyBuffered && jumpCount < jumpMax)
+	if(jumpKeyBuffered && jumpCount < jumpMax && !grappling)
 	{
 		// Reset Buffer
 		jumpKeyBuffered = false;

@@ -40,6 +40,7 @@
     {"id":{"name":"oCamAdjust","path":"objects/oCamAdjust/oCamAdjust.yy",},},
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},
     {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},},
+    {"id":{"name":"oEnemyProj","path":"objects/oEnemyProj/oEnemyProj.yy",},},
     {"id":{"name":"oGame","path":"objects/oGame/oGame.yy",},},
     {"id":{"name":"oGrapple","path":"objects/oGrapple/oGrapple.yy",},},
     {"id":{"name":"oHitStabVFX","path":"objects/oHitStabVFX/oHitStabVFX.yy",},},
