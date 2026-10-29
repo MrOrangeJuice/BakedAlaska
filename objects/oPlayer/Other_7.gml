@@ -1,4 +1,4 @@
-if(sprite_index == sBlitzLand)
+if(sprite_index == sBlitzLand || sBlitzRunLand)
 {
 	landing = false;
 }

@@ -81,6 +81,7 @@
     {"id":{"name":"sBlitzJump","path":"sprites/sBlitzJump/sBlitzJump.yy",},},
     {"id":{"name":"sBlitzLand","path":"sprites/sBlitzLand/sBlitzLand.yy",},},
     {"id":{"name":"sBlitzRun","path":"sprites/sBlitzRun/sBlitzRun.yy",},},
+    {"id":{"name":"sBlitzRunLand","path":"sprites/sBlitzRunLand/sBlitzRunLand.yy",},},
     {"id":{"name":"sBullet","path":"sprites/sBullet/sBullet.yy",},},
     {"id":{"name":"sCamAdjust","path":"sprites/sCamAdjust/sCamAdjust.yy",},},
     {"id":{"name":"sHitStabVFX","path":"sprites/sHitStabVFX/sHitStabVFX.yy",},},

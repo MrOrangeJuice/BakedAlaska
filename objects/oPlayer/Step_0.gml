@@ -213,7 +213,7 @@ else
 if(abs(xSpd) > 0)
 {
 	if(landing)
-		sprite_index = landSpr;	
+		sprite_index = runLandSpr;	
 	else
 		sprite_index = runSpr;	
 }
