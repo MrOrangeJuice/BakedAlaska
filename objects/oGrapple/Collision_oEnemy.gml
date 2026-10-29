@@ -2,11 +2,11 @@ if(grappleTarget == -1 && other.shieldHp <= 0)
 {
 	hsp = 0;
 	other.grappled = true;
+	other.sprite_index = other.hurtSpr;
 	instance_create_layer(x,y,"Instances",oHitstop);
 	grappleTarget = other;
 	
 	ScreenShake(2,10);
-	other.flash = 5;
 	audio_play_sound(snd_Hit,5,false);
 	if(xdir = 1)
 	{
