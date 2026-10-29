@@ -22,7 +22,7 @@ function getControls()
 	jumpKeyPressed = keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0,gp_face1) || keyboard_check_pressed(ord("P")) || keyboard_check_pressed(ord("Z"));
 	jumpKey = keyboard_check(vk_space) || gamepad_button_check(0,gp_face1) || keyboard_check(ord("P")) || keyboard_check(ord("Z"));
 	attackKey = keyboard_check(ord("O")) || keyboard_check(ord("X")) || mouse_check_button(mb_left) || gamepad_button_check(0,gp_face3);
-	superKeyPressed = keyboard_check_pressed(ord("I")) || keyboard_check_pressed(vk_lshift) || mouse_check_button_pressed(mb_right) || gamepad_button_check_pressed(0,gp_face2); 
+	superKeyPressed = keyboard_check_pressed(ord("I")) || keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_lshift) || mouse_check_button_pressed(mb_right) || gamepad_button_check_pressed(0,gp_face2); 
 	
 	// Jump Key Buffering
 	if(jumpKeyPressed)

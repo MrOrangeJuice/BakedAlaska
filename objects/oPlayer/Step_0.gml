@@ -11,7 +11,7 @@ if(!global.paused && !global.hitPause)
 	// X Movement
 	moveDir = rightKey - leftKey;
 	// Get my face
-	if (moveDir != 0)
+	if (moveDir != 0 && !grappling)
 		face = moveDir;
 
 	// Get XSpd
@@ -65,6 +65,9 @@ if(!global.paused && !global.hitPause)
 		}
 	}
 
+	if(grappling)
+		xSpd = 0;
+		
 	// Move
 	x += xSpd;
 
@@ -148,6 +151,9 @@ if(!global.paused && !global.hitPause)
 		// "Collide"
 		ySpd = 0;
 	}
+	
+	if(grappling)
+		ySpd = 0;
 
 	y += ySpd;
 	
@@ -196,6 +202,59 @@ if(!global.paused && !global.hitPause)
 				for(var i = 0; i < 3; i++)
 				{
 					var vfx = instance_create_layer(x-8,y-5,"VFX",oParticleStabVFXLeft);
+					vfx.particleSpeed += abs(xSpd);
+				}
+			}
+		}
+		audio_play_sound(snd_Shoot,5,false);
+		ScreenShake(1,5);
+	}
+	
+	// Grapple
+	if (superKeyPressed && !grappling)
+	{
+		grappling = true;
+		hook = -1;
+		hook = instance_create_layer(x+(8*face),y-6,"Grapple",oGrapple);
+		if(rightKey)
+		{
+			hook.xdir = 1;
+			hook.image_xscale = 1;
+			for(var i = 0; i < 3; i++)
+			{
+				var vfx = instance_create_layer(x+8,y-6,"VFX",oParticleStabVFXRight);
+				vfx.particleSpeed += xSpd;
+			}
+		}
+		else if(leftKey)
+		{
+			hook.xdir = -1;	
+			hook.image_xscale = -1;
+			for(var i = 0; i < 3; i++)
+			{
+				var vfx = instance_create_layer(x-8,y-6,"VFX",oParticleStabVFXLeft);
+				vfx.particleSpeed += abs(xSpd);
+			}
+		}
+		else
+		{
+			if(face == 1)
+			{
+				hook.xdir = 1;
+				hook.image_xscale = 1;
+				for(var i = 0; i < 3; i++)
+				{
+					var vfx = instance_create_layer(x+8,y-6,"VFX",oParticleStabVFXRight);
+					vfx.particleSpeed += xSpd;
+				}
+			}
+			else
+			{
+				hook.xdir = -1;	
+				hook.image_xscale = -1;
+				for(var i = 0; i < 3; i++)
+				{
+					var vfx = instance_create_layer(x-8,y-6,"VFX",oParticleStabVFXLeft);
 					vfx.particleSpeed += abs(xSpd);
 				}
 			}

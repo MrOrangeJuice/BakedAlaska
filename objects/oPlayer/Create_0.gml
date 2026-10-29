@@ -70,3 +70,6 @@ shootCooldown = 12;
 // Land
 landing = true;
 landed = false;
+
+// Grapple
+grappling = false;
