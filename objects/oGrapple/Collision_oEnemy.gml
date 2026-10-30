@@ -3,6 +3,7 @@ if(grappleTarget == -1 && other.shieldHp <= 0)
 	hsp = 0;
 	other.grappled = true;
 	other.sprite_index = other.hurtSpr;
+	other.x = x + (8 * xdir);
 	instance_create_layer(x,y,"Instances",oHitstop);
 	grappleTarget = other;
 	
