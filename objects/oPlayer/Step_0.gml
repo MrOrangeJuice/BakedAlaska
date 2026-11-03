@@ -158,7 +158,7 @@ if(!global.paused && !global.hitPause)
 	y += ySpd;
 	
 	// Shoot
-	if (attackKey && shootTimer <= 0)
+	if (attackKey && shootTimer <= 0 && !grappling)
 	{
 		shootTimer = shootCooldown;
 		bullet = -1;
@@ -272,16 +272,22 @@ else
 if(abs(xSpd) > 0)
 {
 	if(grappling)
-		sprite_index = superSpr;
+		if(oGrapple.hsp < -1 && oGrapple.grappleTarget != -1)
+			sprite_index = superSprFinish;
+		else
+			sprite_index = superSpr;
 	else if(landing)
-		sprite_index = runLandSpr;	
+		sprite_index = landSpr;	
 	else
 		sprite_index = runSpr;	
 }
 if(xSpd == 0)
 {
 	if(grappling)
-		sprite_index = superSpr;
+		if(oGrapple.hsp <= -1 && oGrapple.grappleTarget != -1)
+			sprite_index = superSprFinish;
+		else
+			sprite_index = superSpr;
 	else if(landing)
 		sprite_index = landSpr;	
 	else

@@ -81,6 +81,7 @@
     {"id":{"name":"sBlitz","path":"sprites/sBlitz/sBlitz.yy",},},
     {"id":{"name":"sBlitzFall","path":"sprites/sBlitzFall/sBlitzFall.yy",},},
     {"id":{"name":"sBlitzGrapple","path":"sprites/sBlitzGrapple/sBlitzGrapple.yy",},},
+    {"id":{"name":"sBlitzGrapplePull","path":"sprites/sBlitzGrapplePull/sBlitzGrapplePull.yy",},},
     {"id":{"name":"sBlitzJump","path":"sprites/sBlitzJump/sBlitzJump.yy",},},
     {"id":{"name":"sBlitzLand","path":"sprites/sBlitzLand/sBlitzLand.yy",},},
     {"id":{"name":"sBlitzRun","path":"sprites/sBlitzRun/sBlitzRun.yy",},},

@@ -7,11 +7,10 @@ function SetOnGround(_val = true)
 	{
 		onGround = true;
 		coyoteHangTimer = coyoteHangFrames;
-		if(!landed)
+		if(!landed && !CheckIfSlope())
 		{
 			landed = true;
 			landing = true;
-			//instance_create_layer(x,y,"VFX",oLandVFX);
 		}
 	}
 	else
@@ -21,6 +20,14 @@ function SetOnGround(_val = true)
 		onGround = false;
 		coyoteHangTimer = 0;
 	}
+}
+
+function CheckIfSlope()
+{
+	if(place_meeting(x,y + ySpd,oSlope0) || place_meeting(x,y + ySpd,oSlope1))
+		return true;
+	else
+		return false;
 }
 
 // Controls Setup
@@ -34,6 +41,7 @@ fallSpr = sBlitzFall;
 landSpr = sBlitzLand;
 runLandSpr = sBlitzRunLand;
 superSpr = sBlitzGrapple;
+superSprFinish = sBlitzGrapplePull;
 
 // Moving
 face = 1;
