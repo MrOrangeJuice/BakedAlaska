@@ -271,7 +271,9 @@ else
 // Sprite Control
 if(abs(xSpd) > 0)
 {
-	if(yanking)
+	if(shootingDown)
+		sprite_index = shootDownSpr;
+	else if(yanking)
 		sprite_index = yankSpr;
 	else if(grappling)
 		if(oGrapple.hsp < -1 && oGrapple.grappleTarget != -1)
@@ -285,7 +287,9 @@ if(abs(xSpd) > 0)
 }
 if(xSpd == 0)
 {
-	if(yanking)
+	if(shootingDown)
+		sprite_index = shootDownSpr;
+	else if(yanking)
 		sprite_index = yankSpr;
 	else if(grappling)
 		if(oGrapple.hsp <= -1 && oGrapple.grappleTarget != -1)
@@ -299,7 +303,9 @@ if(xSpd == 0)
 }
 if(!onGround)
 {
-	if(yanking)
+	if(shootingDown)
+		sprite_index = shootDownSpr;
+	else if(yanking)
 		sprite_index = yankSpr;
 	else if(ySpd > 0)
 		sprite_index = fallSpr;

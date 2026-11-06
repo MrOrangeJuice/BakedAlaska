@@ -8,20 +8,22 @@ if(yankTarget == -1)
 	
 	ScreenShake(2,10);
 	audio_play_sound(snd_Hit,5,false);
+	other.flash = 5;
+	
 	if(xdir = 1)
 	{
-		instance_create_layer(other.x-10,other.y,"VFX",oHitStabVFX);
+		instance_create_layer(other.x-12,other.y,"VFX",oHitStabVFX);
 		for(var i = 0; i < 5; i++)
 		{
-			instance_create_layer(other.x,other.y,"VFX",oParticleStabVFXRight);
+			instance_create_layer(other.x+2,other.y,"VFX",oParticleStabVFXRight);
 		}
 	}
 	else if(xdir = -1)
 	{
-		instance_create_layer(other.x+10,other.y,"VFX",oHitStabVFXLeft);
+		instance_create_layer(other.x+12,other.y,"VFX",oHitStabVFXLeft);
 		for(var i = 0; i < 5; i++)
 		{
-			instance_create_layer(other.x,other.y,"VFX",oParticleStabVFXLeft);
+			instance_create_layer(other.x-2,other.y,"VFX",oParticleStabVFXLeft);
 		}
 	}
 }

@@ -10,8 +10,8 @@
     "path":"folders/Objects/VFX.yy",
   },
   "parentObjectId":{
-    "name":"oVFX1",
-    "path":"objects/oVFX1/oVFX1.yy",
+    "name":"oVFX",
+    "path":"objects/oVFX/oVFX.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
