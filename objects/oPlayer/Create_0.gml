@@ -42,6 +42,7 @@ landSpr = sBlitzLand;
 runLandSpr = sBlitzRunLand;
 superSpr = sBlitzGrapple;
 superSprFinish = sBlitzGrapplePull;
+yankSpr = sBlitzYank;
 
 // Moving
 face = 1;
@@ -82,3 +83,4 @@ landed = false;
 
 // Grapple
 grappling = false;
+yanking = false;

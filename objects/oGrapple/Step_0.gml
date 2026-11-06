@@ -1,11 +1,20 @@
 if(!global.paused && !global.hitPause)
 {
-	hsp += decel;
+	if(yankTarget == -1)
+	{
+		hsp += decel;
 
-	x += (hsp * xdir);
+		x += (hsp * xdir);
+	}
 	
 	if(grappleTarget != -1)
 	{
 		grappleTarget.x += (hsp * xdir);
+	}
+	
+	if(yankTarget != -1)
+	{
+		yankSpd += yankAccel;
+		oPlayer.x += yankSpd * xdir;
 	}
 }
