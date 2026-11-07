@@ -1,6 +1,7 @@
 if(grappleTarget == -1 && other.shieldHp <= 0)
 {
 	hsp = 0;
+	oPlayer.canAirGrapple = true;
 	other.grappled = true;
 	other.flash = 5;
 	other.sprite_index = other.hurtSpr;

@@ -11,6 +11,8 @@ function SetOnGround(_val = true)
 		{
 			landed = true;
 			landing = true;
+			canAirGrapple = true;
+			airborne = false;
 		}
 	}
 	else
@@ -63,6 +65,7 @@ jspd = -5.5;
 jumpMax = 1;
 jumpCount = 0;
 onGround = true;
+airborne = false;
 
 if(!instance_exists(oPlayerPixel))
 {
@@ -87,6 +90,7 @@ landing = true;
 landed = false;
 
 // Grapple
+canAirGrapple = true;
 grappling = false;
 yanking = false;
 shootingDown = false;

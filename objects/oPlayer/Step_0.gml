@@ -103,6 +103,10 @@ if(!global.paused && !global.hitPause)
 	{
 		SetOnGround();
 	}
+	else
+	{
+		airborne = true;
+	}
 
 	// Initiate Jump
 	if(jumpKeyBuffered && jumpCount < jumpMax && !grappling)
@@ -211,8 +215,15 @@ if(!global.paused && !global.hitPause)
 	}
 	
 	// Grapple
-	if (superKeyPressed && !grappling)
+	if (superKeyBuffered && !grappling && (!airborne || canAirGrapple))
 	{
+		// Reset Buffer
+		superKeyBuffered = false;
+		superKeyBufferTimer = 0;
+		
+		if(airborne)
+			canAirGrapple = false;
+			
 		grappling = true;
 		hook = -1;
 		hook = instance_create_layer(x+(8*face),y-6,"Grapple",oGrapple);
