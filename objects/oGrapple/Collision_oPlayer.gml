@@ -45,12 +45,16 @@ else
 		with(oPlayer)
 		{
 			grappling = false;
-			shootingForward = true;
-			alarm[0] = room_speed * 0.2;
 		}
 		
 		if(grappleTarget != -1)
 		{
+			with(oPlayer)
+			{
+				shootingForward = true;
+				alarm[0] = room_speed * 0.2;
+			}
+			
 			enemyProj = instance_create_layer(grappleTarget.x,grappleTarget.y,"Instances",oEnemyProj);
 			enemyProj.xdir = xdir;
 			enemyProj.image_xscale = xdir;
@@ -65,7 +69,7 @@ else
 				instance_create_layer(grappleTarget.x-10,grappleTarget.y,"VFX",oHitStabVFX);
 				for(var i = 0; i < 20; i++)
 				{
-					instance_create_layer(grappleTarget.x,grappleTarget.y,"VFX",oParticleStabVFXRight);
+					instance_create_layer(grappleTarget.x,grappleTarget.y,"VFX",oParticleStabVFXRightFast);
 				}
 			}
 			else if(xdir == -1)

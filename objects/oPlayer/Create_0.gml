@@ -42,9 +42,12 @@ landSpr = sBlitzLand;
 runLandSpr = sBlitzRunLand;
 superSpr = sBlitzGrapple;
 superSprFinish = sBlitzGrapplePull;
+superSprAir = sBlitzGrappleAir;
+superSprAirFinish = sBlitzGrapplePullAir;
 yankSpr = sBlitzYank;
 shootDownSpr = sBlitzShootDown;
 shootForwardSpr = sBlitzShootForward;
+shootForwardSprAir = sBlitzShootForwardAir;
 
 // Moving
 face = 1;

@@ -317,6 +317,18 @@ if(!onGround)
 		sprite_index = shootDownSpr;
 	else if(yanking)
 		sprite_index = yankSpr;
+		else if(yanking)
+		sprite_index = yankSpr;
+	else if(shootingForward)
+		sprite_index = shootForwardSprAir;
+	else if(grappling)
+		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
+			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
+				sprite_index = superSprAirFinish;
+			else
+				sprite_index = superSprAir;
+		else
+			sprite_index = superSprAir;
 	else if(ySpd > 0)
 		sprite_index = fallSpr;
 	else
