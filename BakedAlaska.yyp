@@ -71,6 +71,7 @@
     {"id":{"name":"snd_Die","path":"sounds/snd_Die/snd_Die.yy",},},
     {"id":{"name":"snd_Hit","path":"sounds/snd_Hit/snd_Hit.yy",},},
     {"id":{"name":"snd_Jump","path":"sounds/snd_Jump/snd_Jump.yy",},},
+    {"id":{"name":"snd_Klang","path":"sounds/snd_Klang/snd_Klang.yy",},},
     {"id":{"name":"snd_Shoot","path":"sounds/snd_Shoot/snd_Shoot.yy",},},
     {"id":{"name":"sndShieldExplosion1","path":"sounds/sndShieldExplosion1/sndShieldExplosion1.yy",},},
     {"id":{"name":"sndShieldExplosion2","path":"sounds/sndShieldExplosion2/sndShieldExplosion2.yy",},},

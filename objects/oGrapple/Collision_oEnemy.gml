@@ -27,3 +27,21 @@ if(grappleTarget == -1 && other.shieldHp <= 0)
 		}
 	}
 }
+else if(grappleTarget == -1 && other.shieldHp > 0)
+{
+	if(!bonked)
+	{
+		if(xdir = 1)
+		{
+			instance_create_layer(other.x-10,other.y,"VFX",oHitStabVFX);
+		}
+		else if(xdir = -1)
+		{
+			instance_create_layer(other.x+10,other.y,"VFX",oHitStabVFXLeft);
+		}
+	
+		hsp = 0;
+		bonked = true;
+		audio_play_sound(snd_Klang,5,false);
+	}
+}

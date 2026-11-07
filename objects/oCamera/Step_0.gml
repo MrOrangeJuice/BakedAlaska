@@ -60,3 +60,10 @@ y = clamp(y,0+view_h_half,room_height-view_h_half);
 
 // Tell the view to follow this object's coordinates
 camera_set_view_pos(cam,x-view_w_half,y-view_h_half);
+
+// Parallax
+if (layer_exists("Background"))
+{
+	layer_x("Background",x/2);
+	layer_y("Background",y/2);
+}

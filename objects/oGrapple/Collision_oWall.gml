@@ -10,6 +10,5 @@ if(!bonked)
 	}
 	
 	hsp = 0;
-	//decel *= 1.5;
 	bonked = true;
 }
