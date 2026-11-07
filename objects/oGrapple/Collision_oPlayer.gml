@@ -42,7 +42,13 @@ else
 {
 	if(hsp <= 0)
 	{
-		oPlayer.grappling = false;
+		with(oPlayer)
+		{
+			grappling = false;
+			shootingForward = true;
+			alarm[0] = room_speed * 0.2;
+		}
+		
 		if(grappleTarget != -1)
 		{
 			enemyProj = instance_create_layer(grappleTarget.x,grappleTarget.y,"Instances",oEnemyProj);
@@ -54,7 +60,7 @@ else
 			audio_play_sound(snd_Die,5,false);
 			ScreenShake(4,20);
 			instance_create_layer(x,y,"Instances",oHitstop);
-			if(xdir = 1)
+			if(xdir == 1)
 			{
 				instance_create_layer(grappleTarget.x-10,grappleTarget.y,"VFX",oHitStabVFX);
 				for(var i = 0; i < 20; i++)
@@ -62,7 +68,7 @@ else
 					instance_create_layer(grappleTarget.x,grappleTarget.y,"VFX",oParticleStabVFXRight);
 				}
 			}
-			else if(xdir = -1)
+			else if(xdir == -1)
 			{
 				instance_create_layer(grappleTarget.x+10,grappleTarget.y,"VFX",oHitStabVFXLeft);
 				for(var i = 0; i < 20; i++)

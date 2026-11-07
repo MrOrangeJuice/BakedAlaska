@@ -275,9 +275,14 @@ if(abs(xSpd) > 0)
 		sprite_index = shootDownSpr;
 	else if(yanking)
 		sprite_index = yankSpr;
+	else if(shootingForward)
+		sprite_index = shootForwardSpr;
 	else if(grappling)
-		if(oGrapple.hsp < -1 && oGrapple.grappleTarget != -1)
-			sprite_index = superSprFinish;
+		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
+			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
+				sprite_index = superSprFinish;
+			else
+				sprite_index = superSpr;
 		else
 			sprite_index = superSpr;
 	else if(landing)
@@ -291,9 +296,14 @@ if(xSpd == 0)
 		sprite_index = shootDownSpr;
 	else if(yanking)
 		sprite_index = yankSpr;
+	else if(shootingForward)
+		sprite_index = shootForwardSpr;
 	else if(grappling)
-		if(oGrapple.hsp <= -1 && oGrapple.grappleTarget != -1)
-			sprite_index = superSprFinish;
+		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
+			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
+				sprite_index = superSprFinish;
+			else
+				sprite_index = superSpr;
 		else
 			sprite_index = superSpr;
 	else if(landing)

@@ -44,6 +44,7 @@ superSpr = sBlitzGrapple;
 superSprFinish = sBlitzGrapplePull;
 yankSpr = sBlitzYank;
 shootDownSpr = sBlitzShootDown;
+shootForwardSpr = sBlitzShootForward;
 
 // Moving
 face = 1;
@@ -86,3 +87,4 @@ landed = false;
 grappling = false;
 yanking = false;
 shootingDown = false;
+shootingForward = false;

@@ -3,7 +3,7 @@
 ScreenShake(2,10);
 other.flash = 5;
 audio_play_sound(snd_Hit,5,false);
-if(xdir = 1)
+if(xdir == 1)
 {
 	instance_create_layer(other.x-2,other.y+8,"VFX",oHitStabVFX);
 	for(var i = 0; i < 5; i++)
@@ -11,7 +11,7 @@ if(xdir = 1)
 		instance_create_layer(other.x+8,other.y+8,"VFX",oParticleStabVFXRight);
 	}
 }
-else if(xdir = -1)
+else if(xdir == -1)
 {
 	instance_create_layer(other.x+18,other.y+8,"VFX",oHitStabVFXLeft);
 	for(var i = 0; i < 5; i++)
