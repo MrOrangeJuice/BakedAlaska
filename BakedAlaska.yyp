@@ -79,6 +79,8 @@
     {"id":{"name":"sndShieldExplosion1","path":"sounds/sndShieldExplosion1/sndShieldExplosion1.yy",},},
     {"id":{"name":"sndShieldExplosion2","path":"sounds/sndShieldExplosion2/sndShieldExplosion2.yy",},},
     {"id":{"name":"sAlice","path":"sprites/sAlice/sAlice.yy",},},
+    {"id":{"name":"sAliceFall","path":"sprites/sAliceFall/sAliceFall.yy",},},
+    {"id":{"name":"sAliceJump","path":"sprites/sAliceJump/sAliceJump.yy",},},
     {"id":{"name":"sBackgroundTest","path":"sprites/sBackgroundTest/sBackgroundTest.yy",},},
     {"id":{"name":"sBasicEnemy","path":"sprites/sBasicEnemy/sBasicEnemy.yy",},},
     {"id":{"name":"sBasicEnemyHurt","path":"sprites/sBasicEnemyHurt/sBasicEnemyHurt.yy",},},
