@@ -81,6 +81,7 @@
     {"id":{"name":"sAlice","path":"sprites/sAlice/sAlice.yy",},},
     {"id":{"name":"sAliceFall","path":"sprites/sAliceFall/sAliceFall.yy",},},
     {"id":{"name":"sAliceJump","path":"sprites/sAliceJump/sAliceJump.yy",},},
+    {"id":{"name":"sAliceRun","path":"sprites/sAliceRun/sAliceRun.yy",},},
     {"id":{"name":"sBackgroundTest","path":"sprites/sBackgroundTest/sBackgroundTest.yy",},},
     {"id":{"name":"sBasicEnemy","path":"sprites/sBasicEnemy/sBasicEnemy.yy",},},
     {"id":{"name":"sBasicEnemyHurt","path":"sprites/sBasicEnemyHurt/sBasicEnemyHurt.yy",},},
