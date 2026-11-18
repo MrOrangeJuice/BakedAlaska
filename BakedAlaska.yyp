@@ -32,10 +32,11 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2026.1.0.27",
   },
   "name":"BakedAlaska",
   "resources":[
+    {"id":{"name":"oAlice","path":"objects/oAlice/oAlice.yy",},},
     {"id":{"name":"oBullet","path":"objects/oBullet/oBullet.yy",},},
     {"id":{"name":"oCamAdjust","path":"objects/oCamAdjust/oCamAdjust.yy",},},
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},
@@ -82,6 +83,7 @@
     {"id":{"name":"sAliceFall","path":"sprites/sAliceFall/sAliceFall.yy",},},
     {"id":{"name":"sAliceJump","path":"sprites/sAliceJump/sAliceJump.yy",},},
     {"id":{"name":"sAliceRun","path":"sprites/sAliceRun/sAliceRun.yy",},},
+    {"id":{"name":"sAliceRunNew","path":"sprites/sAliceRunNew/sAliceRunNew.yy",},},
     {"id":{"name":"sBackgroundTest","path":"sprites/sBackgroundTest/sBackgroundTest.yy",},},
     {"id":{"name":"sBasicEnemy","path":"sprites/sBasicEnemy/sBasicEnemy.yy",},},
     {"id":{"name":"sBasicEnemyHurt","path":"sprites/sBasicEnemyHurt/sBasicEnemyHurt.yy",},},
@@ -113,6 +115,7 @@
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sPlayer1","path":"sprites/sPlayer1/sPlayer1.yy",},},
     {"id":{"name":"sPlayerRun","path":"sprites/sPlayerRun/sPlayerRun.yy",},},
+    {"id":{"name":"sPlayerRun1","path":"sprites/sPlayerRun1/sPlayerRun1.yy",},},
     {"id":{"name":"sSlope0","path":"sprites/sSlope0/sSlope0.yy",},},
     {"id":{"name":"sSlope1","path":"sprites/sSlope1/sSlope1.yy",},},
     {"id":{"name":"sSlope2","path":"sprites/sSlope2/sSlope2.yy",},},
