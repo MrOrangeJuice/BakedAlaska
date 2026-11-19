@@ -19,9 +19,7 @@
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"74e278a8-e54b-4026-aefa-21fd7f98f723","blendMode":0,"displayName":"Arm Front","isLocked":false,"name":"74e278a8-e54b-4026-aefa-21fd7f98f723","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"2b30fda1-c698-498a-8a28-fe8d27fbc229","blendMode":0,"displayName":"default","isLocked":false,"name":"2b30fda1-c698-498a-8a28-fe8d27fbc229","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"7476f08e-6c8f-4978-8857-eabc0b2e4671","blendMode":0,"displayName":"Arm Back","isLocked":false,"name":"7476f08e-6c8f-4978-8857-eabc0b2e4671","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sAliceJump",
   "nineSlice":null,

@@ -26,8 +26,8 @@
   "height":18,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"33269941-bb0f-499f-a856-33fbf2255c0d","blendMode":0,"displayName":"Arm","isLocked":false,"name":"33269941-bb0f-499f-a856-33fbf2255c0d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
-    {"$GMImageLayer":"","%Name":"13494f93-ec9e-481a-9ee6-0d3d539ae079","blendMode":0,"displayName":"default","isLocked":false,"name":"13494f93-ec9e-481a-9ee6-0d3d539ae079","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
+    {"$GMImageLayer":"","%Name":"33269941-bb0f-499f-a856-33fbf2255c0d","blendMode":0,"displayName":"Arm","isLocked":false,"name":"33269941-bb0f-499f-a856-33fbf2255c0d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"13494f93-ec9e-481a-9ee6-0d3d539ae079","blendMode":0,"displayName":"default","isLocked":false,"name":"13494f93-ec9e-481a-9ee6-0d3d539ae079","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"3cb54d6f-7e52-4f19-9c62-9404153519e9","blendMode":0,"displayName":"Gun","isLocked":false,"name":"3cb54d6f-7e52-4f19-9c62-9404153519e9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sPlayerRun1",

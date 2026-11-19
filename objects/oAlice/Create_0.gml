@@ -37,10 +37,10 @@ controlsSetup();
 
 // Sprites
 idleSpr = sAlice;
-runSpr = sAliceRunNew;
+runSpr = sAliceRun;
 jumpSpr = sAliceJump;
 fallSpr = sAliceFall;
-landSpr = sBlitzLand;
+landSpr = sAliceLand;
 runLandSpr = sBlitzRunLand;
 superSpr = sBlitzGrapple;
 superSprFinish = sBlitzGrapplePull;
