@@ -1,13 +1,13 @@
 if(yankTarget != -1)
 {
-	oPlayer.yanking = false;
-	oPlayer.grappling = false;
+	oBlitz.yanking = false;
+	oBlitz.grappling = false;
 	
-	oPlayer.x = yankTarget.x - (4 * xdir);
-	oPlayer.y = yankTarget.y - 8;
+	oBlitz.x = yankTarget.x - (4 * xdir);
+	oBlitz.y = yankTarget.y - 8;
 	
 	// Pop player
-	with(oPlayer)
+	with(oBlitz)
 	{
 		jumpKeyBuffered = false;
 		jumpKeyBufferTimer = 0;
@@ -42,14 +42,14 @@ else
 {
 	if(hsp <= 0)
 	{
-		with(oPlayer)
+		with(oBlitz)
 		{
 			grappling = false;
 		}
 		
 		if(grappleTarget != -1)
 		{
-			with(oPlayer)
+			with(oBlitz)
 			{
 				shootingForward = true;
 				alarm[0] = room_speed * 0.2;

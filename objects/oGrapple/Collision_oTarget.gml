@@ -1,8 +1,8 @@
 if(yankTarget == -1)
 {
 	hsp = 0;
-	oPlayer.yanking = true;
-	oPlayer.canAirGrapple = true;
+	oBlitz.yanking = true;
+	oBlitz.canAirGrapple = true;
 	instance_create_layer(x,y,"Instances",oHitstop);
 	
 	yankTarget = other;

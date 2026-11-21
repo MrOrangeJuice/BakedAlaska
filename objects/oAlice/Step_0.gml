@@ -4,14 +4,13 @@
 if(!global.paused && !global.hitPause)
 {
 	image_speed = 1;
-	shootTimer--;
 	
 	getControls();
 
 	// X Movement
 	moveDir = rightKey - leftKey;
 	// Get my face
-	if (moveDir != 0 && !grappling)
+	if (moveDir != 0 && !slashing && !dashing)
 		face = moveDir;
 
 	// Get XSpd
@@ -64,9 +63,6 @@ if(!global.paused && !global.hitPause)
 			y += _subPixel;
 		}
 	}
-
-	if(grappling)
-		xSpd = 0;
 		
 	// Move
 	x += xSpd;
@@ -109,7 +105,7 @@ if(!global.paused && !global.hitPause)
 	}
 
 	// Initiate Jump
-	if(jumpKeyBuffered && jumpCount < jumpMax && !grappling)
+	if(jumpKeyBuffered && jumpCount < jumpMax)
 	{
 		// Reset Buffer
 		jumpKeyBuffered = false;
@@ -155,123 +151,26 @@ if(!global.paused && !global.hitPause)
 		// "Collide"
 		ySpd = 0;
 	}
-	
-	if(grappling)
-		ySpd = 0;
 
 	y += ySpd;
 	
-	// Shoot
-	if (attackKey && shootTimer <= 0 && !grappling)
+	// Attack
+	if (attackKey)
 	{
-		shootTimer = shootCooldown;
-		bullet = -1;
-		bullet = instance_create_layer(x+(8*face),y-5,"Bullets",oBullet);
-		if(rightKey)
-		{
-			bullet.xdir = 1;
-			bullet.image_xscale = 1;
-			for(var i = 0; i < 3; i++)
-			{
-				var vfx = instance_create_layer(x+8,y-5,"VFX",oParticleStabVFXRight);
-				vfx.particleSpeed += xSpd;
-			}
-		}
-		else if(leftKey)
-		{
-			bullet.xdir = -1;	
-			bullet.image_xscale = -1;
-			for(var i = 0; i < 3; i++)
-			{
-				var vfx = instance_create_layer(x-8,y-5,"VFX",oParticleStabVFXLeft);
-				vfx.particleSpeed += abs(xSpd);
-			}
-		}
-		else
-		{
-			if(face == 1)
-			{
-				bullet.xdir = 1;
-				bullet.image_xscale = 1;
-				for(var i = 0; i < 3; i++)
-				{
-					var vfx = instance_create_layer(x+8,y-5,"VFX",oParticleStabVFXRight);
-					vfx.particleSpeed += xSpd;
-				}
-			}
-			else
-			{
-				bullet.xdir = -1;	
-				bullet.image_xscale = -1;
-				for(var i = 0; i < 3; i++)
-				{
-					var vfx = instance_create_layer(x-8,y-5,"VFX",oParticleStabVFXLeft);
-					vfx.particleSpeed += abs(xSpd);
-				}
-			}
-		}
-		audio_play_sound(snd_Shoot,5,false);
-		ScreenShake(1,5);
+
 	}
 	
-	// Grapple
-	if (superKeyBuffered && !grappling && (!airborne || canAirGrapple))
+	// Dash
+	if (superKeyBuffered)
 	{
 		// Reset Buffer
 		superKeyBuffered = false;
 		superKeyBufferTimer = 0;
 		
 		if(airborne)
-			canAirGrapple = false;
+			canAirDash = false;
 			
-		grappling = true;
-		hook = -1;
-		hook = instance_create_layer(x+(8*face),y-6,"Grapple",oGrapple);
-		if(rightKey)
-		{
-			hook.xdir = 1;
-			hook.image_xscale = 1;
-			for(var i = 0; i < 3; i++)
-			{
-				var vfx = instance_create_layer(x+8,y-6,"VFX",oParticleStabVFXRight);
-				vfx.particleSpeed += xSpd;
-			}
-		}
-		else if(leftKey)
-		{
-			hook.xdir = -1;	
-			hook.image_xscale = -1;
-			for(var i = 0; i < 3; i++)
-			{
-				var vfx = instance_create_layer(x-8,y-6,"VFX",oParticleStabVFXLeft);
-				vfx.particleSpeed += abs(xSpd);
-			}
-		}
-		else
-		{
-			if(face == 1)
-			{
-				hook.xdir = 1;
-				hook.image_xscale = 1;
-				for(var i = 0; i < 3; i++)
-				{
-					var vfx = instance_create_layer(x+8,y-6,"VFX",oParticleStabVFXRight);
-					vfx.particleSpeed += xSpd;
-				}
-			}
-			else
-			{
-				hook.xdir = -1;	
-				hook.image_xscale = -1;
-				for(var i = 0; i < 3; i++)
-				{
-					var vfx = instance_create_layer(x-8,y-6,"VFX",oParticleStabVFXLeft);
-					vfx.particleSpeed += abs(xSpd);
-				}
-			}
-		}
-		audio_play_sound(snd_Shoot,5,false);
-		ScreenShake(1,5);
+		dashing = true;
 	}
 }
 else
@@ -282,65 +181,21 @@ else
 // Sprite Control
 if(abs(xSpd) > 0)
 {
-	if(shootingDown)
-		sprite_index = shootDownSpr;
-	else if(yanking)
-		sprite_index = yankSpr;
-	else if(shootingForward)
-		sprite_index = shootForwardSpr;
-	else if(grappling)
-		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
-			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
-				sprite_index = superSprFinish;
-			else
-				sprite_index = superSpr;
-		else
-			sprite_index = superSpr;
-	else if(landing)
+	 if(landing)
 		sprite_index = landSpr;	
 	else
 		sprite_index = runSpr;	
 }
 if(xSpd == 0)
 {
-	if(shootingDown)
-		sprite_index = shootDownSpr;
-	else if(yanking)
-		sprite_index = yankSpr;
-	else if(shootingForward)
-		sprite_index = shootForwardSpr;
-	else if(grappling)
-		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
-			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
-				sprite_index = superSprFinish;
-			else
-				sprite_index = superSpr;
-		else
-			sprite_index = superSpr;
-	else if(landing)
+	if(landing)
 		sprite_index = landSpr;	
 	else
 		sprite_index = idleSpr;
 }
 if(!onGround)
 {
-	if(shootingDown)
-		sprite_index = shootDownSpr;
-	else if(yanking)
-		sprite_index = yankSpr;
-		else if(yanking)
-		sprite_index = yankSpr;
-	else if(shootingForward)
-		sprite_index = shootForwardSprAir;
-	else if(grappling)
-		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
-			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
-				sprite_index = superSprAirFinish;
-			else
-				sprite_index = superSprAir;
-		else
-			sprite_index = superSprAir;
-	else if(ySpd > 0)
+	if(ySpd > 0)
 		sprite_index = fallSpr;
 	else
 		sprite_index = jumpSpr;

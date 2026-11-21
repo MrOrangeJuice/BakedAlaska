@@ -37,6 +37,7 @@
   "name":"BakedAlaska",
   "resources":[
     {"id":{"name":"oAlice","path":"objects/oAlice/oAlice.yy",},},
+    {"id":{"name":"oBlitz","path":"objects/oBlitz/oBlitz.yy",},},
     {"id":{"name":"oBullet","path":"objects/oBullet/oBullet.yy",},},
     {"id":{"name":"oCamAdjust","path":"objects/oCamAdjust/oCamAdjust.yy",},},
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},

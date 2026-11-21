@@ -11,7 +11,7 @@ function SetOnGround(_val = true)
 		{
 			landed = true;
 			landing = true;
-			canAirGrapple = true;
+			canAirDash = true;
 			airborne = false;
 		}
 	}
@@ -41,15 +41,6 @@ runSpr = sAliceRun;
 jumpSpr = sAliceJump;
 fallSpr = sAliceFall;
 landSpr = sAliceLand;
-runLandSpr = sBlitzRunLand;
-superSpr = sBlitzGrapple;
-superSprFinish = sBlitzGrapplePull;
-superSprAir = sBlitzGrappleAir;
-superSprAirFinish = sBlitzGrapplePullAir;
-yankSpr = sBlitzYank;
-shootDownSpr = sBlitzShootDown;
-shootForwardSpr = sBlitzShootForward;
-shootForwardSprAir = sBlitzShootForwardAir;
 
 // Moving
 face = 1;
@@ -80,18 +71,11 @@ coyoteHangTimer = 0;
 coyoteJumpFrames = 10;
 coyoteJumpTimer = 0;
 
-// Attack
-bullet = -1;
-shootTimer = 0;
-shootCooldown = 12;
-
 // Land
 landing = true;
 landed = false;
 
-// Grapple
-canAirGrapple = true;
-grappling = false;
-yanking = false;
-shootingDown = false;
-shootingForward = false;
+// Sword
+canAirDash = true;
+slashing = false;
+dashing = false;

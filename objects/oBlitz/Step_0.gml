@@ -290,7 +290,7 @@ if(abs(xSpd) > 0)
 		sprite_index = shootForwardSpr;
 	else if(grappling)
 		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
-			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
+			if(FramesUntilImpact(oBlitz.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
 				sprite_index = superSprFinish;
 			else
 				sprite_index = superSpr;
@@ -311,7 +311,7 @@ if(xSpd == 0)
 		sprite_index = shootForwardSpr;
 	else if(grappling)
 		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
-			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
+			if(FramesUntilImpact(oBlitz.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
 				sprite_index = superSprFinish;
 			else
 				sprite_index = superSpr;
@@ -334,7 +334,7 @@ if(!onGround)
 		sprite_index = shootForwardSprAir;
 	else if(grappling)
 		if(oGrapple.grappleTarget != -1 && oGrapple.hsp < 0)
-			if(FramesUntilImpact(oPlayer.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
+			if(FramesUntilImpact(oBlitz.x,oGrapple.grappleTarget.x,-oGrapple.hsp) < 20)
 				sprite_index = superSprAirFinish;
 			else
 				sprite_index = superSprAir;

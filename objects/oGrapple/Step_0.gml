@@ -15,6 +15,6 @@ if(!global.paused && !global.hitPause)
 	if(yankTarget != -1)
 	{
 		yankSpd += yankAccel;
-		oPlayer.x += yankSpd * xdir;
+		oBlitz.x += yankSpd * xdir;
 	}
 }
