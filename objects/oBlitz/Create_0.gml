@@ -54,7 +54,7 @@ shootForwardSprAir = sBlitzShootForwardAir;
 // Moving
 face = 1;
 moveDir = 0;
-moveSpd = 2.25;
+moveSpd = 2;
 xSpd = 0;
 ySpd = 0;
 

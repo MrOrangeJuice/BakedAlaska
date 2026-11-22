@@ -1,4 +1,4 @@
-hsp = 12;
+hsp = 10;
 yankSpd = 2;
 yankAccel = 0.5;
 decel = -0.5;
