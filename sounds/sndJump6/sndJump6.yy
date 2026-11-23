@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndJump6",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.70104307,
+  "exportDir":"",
+  "name":"sndJump6",
+  "parent":{
+    "name":"Jumps",
+    "path":"folders/Sounds/Jumps.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndJump6.wav",
+  "volume":0.5,
+}

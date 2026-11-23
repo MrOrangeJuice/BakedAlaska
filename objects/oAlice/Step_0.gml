@@ -14,7 +14,7 @@ if(!global.paused && !global.hitPause)
 		face = moveDir;
 
 	// Get XSpd
-	if(xSpd == 0 && moveDir != 0)
+	if(xSpd == 0 && moveDir != 0 && !slashing)
 		image_index = 0;
 	xSpd = moveDir * moveSpd;
 
@@ -157,9 +157,35 @@ if(!global.paused && !global.hitPause)
 	y += ySpd;
 	
 	// Attack
-	if (attackKey)
+	if (attackKeyBuffered && canSlash)
 	{
-
+		// Reset Buffer
+		attackKeyBuffered = false;
+		attackKeyBufferTimer = 0;
+		canSlash = false;
+		PlayRandomSwordSound();
+		slashing = true;
+		alarm[0] = room_speed * 0.125;
+		image_index = 0;
+	}
+	
+	// Attack hitbox
+	if(slashing && canSpawnHitbox)
+	{
+		if(face == 1)
+		{
+			if(!instance_exists(oSlashHitbox))
+			{
+				instance_create_layer(x,y,"Instances",oSlashHitbox);
+			}
+		}
+		else if(face == -1)
+		{
+			if(!instance_exists(oSlashHitboxLeft))
+			{
+				instance_create_layer(x,y,"Instances",oSlashHitboxLeft);
+			}
+		}
 	}
 	
 	// Dash
@@ -182,23 +208,30 @@ else
 
 // Sprite Control
 if(abs(xSpd) > 0)
-{
-	 if(landing)
+{	
+	if(slashing)
+		sprite_index = slashSpr;
+	else if(landing)
 		sprite_index = landSpr;	
 	else
 		sprite_index = runSpr;	
 }
 if(xSpd == 0)
 {
-	if(landing)
+	if(slashing)
+		sprite_index = slashSpr;
+	else if(landing)
 		sprite_index = landSpr;	
 	else
 		sprite_index = idleSpr;
 }
 if(!onGround)
 {
-	if(ySpd > 0)
-		sprite_index = fallSpr;
+	if(slashing)
+		sprite_index = slashSpr;
 	else
-		sprite_index = jumpSpr;
+		if(ySpd > 0)
+			sprite_index = fallSpr;
+		else
+			sprite_index = jumpSpr;
 }

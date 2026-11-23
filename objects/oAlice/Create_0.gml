@@ -41,6 +41,7 @@ runSpr = sAliceRun;
 jumpSpr = sAliceJump;
 fallSpr = sAliceFall;
 landSpr = sAliceLand;
+slashSpr = sAliceSlash;
 
 // Moving
 face = 1;
@@ -78,4 +79,6 @@ landed = false;
 // Sword
 canAirDash = true;
 slashing = false;
+canSlash = true;
 dashing = false;
+canSpawnHitbox = false;

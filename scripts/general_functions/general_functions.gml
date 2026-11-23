@@ -10,6 +10,11 @@ function controlsSetup()
 	superKeyBuffered = 0;
 	superKeyBufferTimer = 0;
 	
+	attackBufferTime = 5;
+	
+	attackKeyBuffered = 0;
+	attackKeyBufferTimer = 0;
+	
 	deadZone = 0.2;
 }
 
@@ -38,6 +43,7 @@ function getControls()
 	jumpKeyPressed = keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("P")) || keyboard_check_pressed(ord("Z"));
 	jumpKey = keyboard_check(vk_space) || keyboard_check(ord("P")) || keyboard_check(ord("Z"));
 	attackKey = keyboard_check(ord("O")) || keyboard_check(ord("X")) || mouse_check_button(mb_left);
+	attackKeyPressed = keyboard_check_pressed(ord("O")) || keyboard_check_pressed(ord("X")) || mouse_check_button_pressed(mb_left);
 	superKeyPressed = keyboard_check_pressed(ord("I")) || keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_lshift) || mouse_check_button_pressed(mb_right); 
 	
 	global.controller = 0;
@@ -57,6 +63,12 @@ function getControls()
 	if(gamepad_button_check(0,gp_face3))
 	{
 		attackKey = true;
+		global.controller = 1;
+	}
+	
+	if(gamepad_button_check_pressed(0,gp_face3))
+	{
+		attackKeyPressed = true;
 		global.controller = 1;
 	}
 	
@@ -94,5 +106,20 @@ function getControls()
 	else
 	{
 		superKeyBuffered = 0;	
+	}
+	
+	// Attack Key Buffering
+	if(attackKeyPressed)
+	{
+		attackKeyBufferTimer = attackBufferTime;	
+	}
+	if(attackKeyBufferTimer > 0)
+	{
+		attackKeyBuffered = 1;
+		attackKeyBufferTimer--;
+	}
+	else
+	{
+		attackKeyBuffered = 0;	
 	}
 }
