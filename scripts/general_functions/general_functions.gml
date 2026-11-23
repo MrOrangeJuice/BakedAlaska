@@ -45,6 +45,7 @@ function getControls()
 	attackKey = keyboard_check(ord("O")) || keyboard_check(ord("X")) || mouse_check_button(mb_left);
 	attackKeyPressed = keyboard_check_pressed(ord("O")) || keyboard_check_pressed(ord("X")) || mouse_check_button_pressed(mb_left);
 	superKeyPressed = keyboard_check_pressed(ord("I")) || keyboard_check_pressed(ord("C")) || keyboard_check_pressed(vk_lshift) || mouse_check_button_pressed(mb_right); 
+	switchKeyPressed = keyboard_check_pressed(ord("U")) || keyboard_check_pressed(ord("V")) || keyboard_check_pressed(ord("Q"));
 	
 	global.controller = 0;
 	
@@ -75,6 +76,12 @@ function getControls()
 	if(gamepad_button_check_pressed(0,gp_face2))
 	{
 		superKeyPressed = true;
+		global.controller = 1;
+	}
+	
+	if(gamepad_button_check_pressed(0,gp_shoulderr))
+	{
+		switchKeyPressed = true;
 		global.controller = 1;
 	}
 	

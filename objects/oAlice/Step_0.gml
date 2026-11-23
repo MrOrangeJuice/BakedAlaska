@@ -200,6 +200,18 @@ if(!global.paused && !global.hitPause)
 			
 		dashing = true;
 	}
+	
+	// Switch
+	if(switchKeyPressed && !slashing)
+	{
+		newPlayer = instance_create_layer(x,y,"Instances",oBlitz);	
+		newPlayer.xSpd = xSpd;
+		newPlayer.ySpd = ySpd;
+		newPlayer.face = face;
+		if(instance_exists(oSlashHitbox)) instance_destroy(oSlashHitbox);
+		if(instance_exists(oSlashHitboxLeft)) instance_destroy(oSlashHitboxLeft);
+		instance_destroy();
+	}
 }
 else
 {

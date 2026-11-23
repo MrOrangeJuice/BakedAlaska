@@ -2,7 +2,7 @@
 
 hp = 0;
 shieldHp = 0;
-canHit = false;
+canHit = true;
 shieldBroken = false;
 flash = 0;
 grappled = false;

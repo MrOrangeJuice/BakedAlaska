@@ -273,6 +273,16 @@ if(!global.paused && !global.hitPause)
 		audio_play_sound(snd_Shoot,5,false);
 		ScreenShake(1,5);
 	}
+	
+	// Switch
+	if(switchKeyPressed && !grappling && !yanking)
+	{
+		newPlayer = instance_create_layer(x,y,"Instances",oAlice);	
+		newPlayer.xSpd = xSpd;
+		newPlayer.ySpd = ySpd;	
+		newPlayer.face = face;
+		instance_destroy();
+	}
 }
 else
 {
