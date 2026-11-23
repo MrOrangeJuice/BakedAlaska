@@ -39,6 +39,7 @@ if(other.hp <= 0)
 	{
 		instance_create_layer(other.x,other.y,"VFX",oParticleExplode);
 	}
+	instance_create_layer(x,y,"VFX",oDeathVFX);
 	instance_destroy(other);
 }
 

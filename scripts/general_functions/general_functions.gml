@@ -73,7 +73,7 @@ function getControls()
 		global.controller = 1;
 	}
 	
-	if(gamepad_button_check_pressed(0,gp_face2))
+	if(gamepad_button_check_pressed(0,gp_face2) || gamepad_button_check(0,gp_shoulderrb))
 	{
 		superKeyPressed = true;
 		global.controller = 1;
