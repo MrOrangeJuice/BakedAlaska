@@ -12,10 +12,10 @@ if(canHit)
 		flash = 5;
 		PlayRandomSwordHitSound();
 		instance_create_layer(x,y,"Instances",oHitstopQuick);
-		instance_create_layer(x-14,y,"VFX",oHitStabVFX);
+		instance_create_layer(x-14,y,"VFX",oHitStabGreenVFX);
 		for(var i = 0; i < 5; i++)
 		{
-			instance_create_layer(x,y,"VFX",oParticleStabVFXRight);
+			instance_create_layer(x,y,"VFX",oParticleStabGreenVFXRight);
 		}
 	}
 	if(other.object_index == oSlashHitboxLeft)
@@ -25,10 +25,10 @@ if(canHit)
 		flash = 5;
 		PlayRandomSwordHitSound();
 		instance_create_layer(x,y,"Instances",oHitstopQuick);
-		instance_create_layer(x+14,y,"VFX",oHitStabVFXLeft);
+		instance_create_layer(x+14,y,"VFX",oHitStabGreenVFXLeft);
 		for(var i = 0; i < 5; i++)
 		{
-			instance_create_layer(x,y,"VFX",oParticleStabVFXLeft);
+			instance_create_layer(x,y,"VFX",oParticleStabGreenVFXLeft);
 		}
 	}
 	if(hp <= 0)
