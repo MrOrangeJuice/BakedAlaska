@@ -14,7 +14,7 @@ if(!global.paused && !global.hitPause)
 		face = moveDir;
 
 	// Get XSpd
-	if(xSpd == 0 && moveDir != 0 && !slashing)
+	if(xSpd == 0 && moveDir != 0 && !slashing && !dashing)
 		image_index = 0;
 	xSpd = moveDir * moveSpd;
 

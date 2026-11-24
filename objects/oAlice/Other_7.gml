@@ -3,7 +3,7 @@ if(sprite_index == landSpr)
 	landing = false;
 }
 
-if(sprite_index == slashSpr)
+if(slashing)
 {
 	slashing = false;	
 	canSlash = true;
