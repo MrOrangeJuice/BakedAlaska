@@ -36,7 +36,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2026.1.1.34",
   },
   "name":"BakedAlaska",
   "resources":[
@@ -93,6 +93,8 @@
     {"id":{"name":"snd_Hit","path":"sounds/snd_Hit/snd_Hit.yy",},},
     {"id":{"name":"snd_Jump","path":"sounds/snd_Jump/snd_Jump.yy",},},
     {"id":{"name":"snd_Klang","path":"sounds/snd_Klang/snd_Klang.yy",},},
+    {"id":{"name":"snd_PauseIn","path":"sounds/snd_PauseIn/snd_PauseIn.yy",},},
+    {"id":{"name":"snd_PauseOut","path":"sounds/snd_PauseOut/snd_PauseOut.yy",},},
     {"id":{"name":"snd_Shoot","path":"sounds/snd_Shoot/snd_Shoot.yy",},},
     {"id":{"name":"sndJump1","path":"sounds/sndJump1/sndJump1.yy",},},
     {"id":{"name":"sndJump2","path":"sounds/sndJump2/sndJump2.yy",},},

@@ -216,6 +216,7 @@ if(!global.paused && !global.hitPause)
 else
 {
 	image_speed = 0;
+	alarm[0]++;
 }
 
 // Sprite Control
