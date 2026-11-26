@@ -9,6 +9,7 @@ if(slashing || stabbing)
 	stabbing = false;
 	canSlash = true;
 	if(instance_exists(oEnemy)) oEnemy.canHit = true;
+	if(instance_exists(oTarget)) oTarget.canHit = true;
 	if(instance_exists(oSlashHitbox)) instance_destroy(oSlashHitbox);
 	if(instance_exists(oSlashHitboxLeft)) instance_destroy(oSlashHitboxLeft);
 	if(instance_exists(oStabHitbox)) instance_destroy(oStabHitbox);

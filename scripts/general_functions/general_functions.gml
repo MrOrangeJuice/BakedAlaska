@@ -5,7 +5,7 @@ function controlsSetup()
 	jumpKeyBuffered = 0;
 	jumpKeyBufferTimer = 0;
 	
-	superBufferTime = 10;
+	superBufferTime = 20;
 	
 	superKeyBuffered = 0;
 	superKeyBufferTimer = 0;
@@ -74,7 +74,7 @@ function getControls()
 		global.controller = 1;
 	}
 	
-	if(gamepad_button_check_pressed(0,gp_face2) || gamepad_button_check(0,gp_shoulderrb))
+	if(gamepad_button_check_pressed(0,gp_face2) || gamepad_button_check_pressed(0,gp_shoulderrb))
 	{
 		superKeyPressed = true;
 		global.controller = 1;

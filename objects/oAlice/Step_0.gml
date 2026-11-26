@@ -156,7 +156,7 @@ if(!global.paused && !global.hitPause)
 	y += ySpd;
 	
 	// Animation cancel into stab
-	if(superKeyBuffered)
+	if(superKeyBuffered && (!slashing || canSpawnHitbox))
 	{	
 		slashing = false;	
 		canSlash = -1;

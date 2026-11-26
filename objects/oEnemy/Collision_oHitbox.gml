@@ -74,6 +74,8 @@ if(canHit)
 		{
 			instance_create_layer(x,y,"VFX",oParticleExplode);
 		}
+		instance_destroy(oHitstopLong);
+		instance_destroy(oHitstopQuick);
 		instance_create_layer(x,y,"Instances",oHitstopLong);
 		ScreenShake(5,20);
 		instance_create_layer(x,y,"VFX",oDeathVFX);
@@ -86,6 +88,8 @@ if(canHit)
 		{
 			instance_create_layer(x,y,"VFX",oParticleExplode);
 		}
+		instance_destroy(oHitstopLong);
+		instance_destroy(oHitstopQuick);
 		instance_create_layer(x,y,"Instances",oHitstopLong);
 		ScreenShake(4,20);
 		PlayRandomShieldExplosionSound();
