@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sParticleStabVFX",
-    "path":"sprites/sParticleStabVFX/sParticleStabVFX.yy",
+    "name":"sParticleStabAliceSpearVFX",
+    "path":"sprites/sParticleStabAliceSpearVFX/sParticleStabAliceSpearVFX.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -1,11 +1,10 @@
 /// @description Update Physics
 
+getControls();
 
 if(!global.paused && !global.hitPause)
 {
 	image_speed = 1;
-	
-	getControls();
 
 	// X Movement
 	moveDir = rightKey - leftKey;
@@ -156,49 +155,82 @@ if(!global.paused && !global.hitPause)
 
 	y += ySpd;
 	
+	// Animation cancel into stab
+	if(superKeyBuffered)
+	{	
+		slashing = false;	
+		canSlash = -1;
+		alarm[0] = -1;
+		if(instance_exists(oEnemy)) oEnemy.canHit = true;
+		if(instance_exists(oSlashHitbox)) instance_destroy(oSlashHitbox);
+		if(instance_exists(oSlashHitboxLeft)) instance_destroy(oSlashHitboxLeft);
+		if(instance_exists(oStabHitbox)) instance_destroy(oStabHitbox);
+		if(instance_exists(oStabHitboxLeft)) instance_destroy(oStabHitboxLeft);
+		canSpawnHitbox = false;
+	}
+	
+	canSlash--;
+
 	// Attack
-	if (attackKeyBuffered && canSlash)
+	if(!slashing && (attackKeyBuffered || superKeyBuffered) && canSlash < 0)
 	{
 		// Reset Buffer
 		attackKeyBuffered = false;
 		attackKeyBufferTimer = 0;
-		canSlash = false;
+		
 		PlayRandomSwordSound();
 		slashing = true;
-		alarm[0] = room_speed * 0.125;
+		alarm[0] = room_speed * 0.1;
+		if(superKeyBuffered) 
+		{
+			stabbing = true;
+			alarm[0] = room_speed * 0.1;
+		}
+		canSlash = attackCooldown;
 		image_index = 0;
+		
+		// Reset Buffer
+		superKeyBuffered = false;
+		superKeyBufferTimer = 0;
 	}
 	
 	// Attack hitbox
 	if(slashing && canSpawnHitbox)
 	{
-		if(face == 1)
+		if(stabbing)
 		{
-			if(!instance_exists(oSlashHitbox))
+			if(face == 1)
 			{
-				instance_create_layer(x,y,"Instances",oSlashHitbox);
+				if(!instance_exists(oStabHitbox))
+				{
+					instance_create_layer(x,y,"Instances",oStabHitbox);
+				}
+			}
+			else if(face == -1)
+			{
+				if(!instance_exists(oStabHitboxLeft))
+				{
+					instance_create_layer(x,y,"Instances",oStabHitboxLeft);
+				}
 			}
 		}
-		else if(face == -1)
+		else
 		{
-			if(!instance_exists(oSlashHitboxLeft))
+			if(face == 1)
 			{
-				instance_create_layer(x,y,"Instances",oSlashHitboxLeft);
+				if(!instance_exists(oSlashHitbox))
+				{
+					instance_create_layer(x,y,"Instances",oSlashHitbox);
+				}
+			}
+			else if(face == -1)
+			{
+				if(!instance_exists(oSlashHitboxLeft))
+				{
+					instance_create_layer(x,y,"Instances",oSlashHitboxLeft);
+				}
 			}
 		}
-	}
-	
-	// Dash
-	if (superKeyBuffered)
-	{
-		// Reset Buffer
-		superKeyBuffered = false;
-		superKeyBufferTimer = 0;
-		
-		if(airborne)
-			canAirDash = false;
-			
-		dashing = true;
 	}
 	
 	// Switch
@@ -222,7 +254,9 @@ else
 // Sprite Control
 if(abs(xSpd) > 0)
 {	
-	if(slashing)
+	if(stabbing)
+		sprite_index = stabSpr;
+	else if(slashing)
 		sprite_index = slashSpr;
 	else if(landing)
 		sprite_index = landSpr;	
@@ -231,7 +265,9 @@ if(abs(xSpd) > 0)
 }
 if(xSpd == 0)
 {
-	if(slashing)
+	if(stabbing)
+		sprite_index = stabSpr;
+	else if(slashing)
 		sprite_index = slashSpr;
 	else if(landing)
 		sprite_index = landSpr;	
@@ -240,7 +276,9 @@ if(xSpd == 0)
 }
 if(!onGround)
 {
-	if(slashing)
+	if(stabbing)
+		sprite_index = stabSpr;
+	else if(slashing)
 		sprite_index = slashSpr;
 	else
 		if(ySpd > 0)
